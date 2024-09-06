@@ -15,7 +15,12 @@ show_expensive_cars = st.checkbox('Show only cars priced above $20,000')
 
 if show_expensive_cars:
     filtered_df = df[df['price'] > 20000]
+    fig = px.histogram(filtered_df, x='type', title='Stock of Car Type', labels={'type':'Car Type'})
+    fig.update_layout(yaxis_title="Amount in Stock")
+    st.plotly_chart(fig)
 else:
-    filtered_df = df
+    fig = px.histogram(df, x='type', title='Stock of Car Type', labels={'type':'Car Type'})
+    fig.update_layout(yaxis_title="Amount in Stock")
+    st.plotly_chart(fig)
 
 st.write(filtered_df)
