@@ -22,5 +22,3 @@ else:
     fig = px.histogram(df, x='type', title='Stock of Car Type', labels={'type':'Car Type'})
     fig.update_layout(yaxis_title="Amount in Stock")
     st.plotly_chart(fig)
-
-st.write(filtered_df)
